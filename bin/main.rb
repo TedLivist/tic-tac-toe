@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize, Metrics/BlockNesting
 
 require_relative '../lib/logic'
 
@@ -43,11 +43,11 @@ def play
       input = gets.chomp.to_i
       puts ''
       while input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
-        if (input.nil? or input < 1 or input > 9)
-          puts 'Select a number between 1 and 9' 
+        if input.nil? or input < 1 or input > 9
+          puts 'Select a number between 1 and 9'
           input = gets.chomp.to_i
-        elsif cell[input - 1] != input -1
-          puts 'Field ocupied. Please select different one' 
+        elsif cell[input - 1] != input - 1
+          puts 'The positon has been taken'
           input = gets.chomp.to_i
         end
       end
@@ -69,11 +69,11 @@ def play
       input = gets.chomp.to_i
       puts ''
       while input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
-        if (input.nil? or input < 1 or input > 9)
-          puts 'Select a number between 1 and 9' 
+        if input.nil? or input < 1 or input > 9
+          puts 'Select a number between 1 and 9'
           input = gets.chomp.to_i
-        elsif cell[input - 1] != input -1
-          puts 'Field ocupied. Please select different one' 
+        elsif cell[input - 1] != input - 1
+          puts 'The positon has been taken'
           input = gets.chomp.to_i
         end
       end
@@ -110,4 +110,4 @@ end
 
 play
 
-# rubocop: enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize, Metrics/BlockNesting
