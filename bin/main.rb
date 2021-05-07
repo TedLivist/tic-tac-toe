@@ -39,15 +39,17 @@ def play
     if i.even?
       puts "It's #{players[0]}'s turn!"
       player_mark = 'X'
-      begin
-        puts 'Select a number'
-        input = gets.chomp.to_i
-        puts ''
-        raise StandardError, input if input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
-      rescue StandardError
-        puts 'Select a number between 1 and 9'
-        puts ''
-        retry
+      puts 'Select a number'
+      input = gets.chomp.to_i
+      puts ''
+      while input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
+        if (input.nil? or input < 1 or input > 9)
+          puts 'Select a number between 1 and 9' 
+          input = gets.chomp.to_i
+        elsif cell[input - 1] != input -1
+          puts 'Field ocupied. Please select different one' 
+          input = gets.chomp.to_i
+        end
       end
       cell[input - 1] = player_mark
       check = Logic.new
@@ -63,15 +65,17 @@ def play
     elsif i.odd? and i != 9
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
-      begin
-        puts 'Select a number'
-        input = gets.chomp.to_i
-        puts ''
-        raise StandardError, input if input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
-      rescue StandardError
-        puts 'Select a number between 1 and 9'
-        puts ''
-        retry
+      puts 'Select a number'
+      input = gets.chomp.to_i
+      puts ''
+      while input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
+        if (input.nil? or input < 1 or input > 9)
+          puts 'Select a number between 1 and 9' 
+          input = gets.chomp.to_i
+        elsif cell[input - 1] != input -1
+          puts 'Field ocupied. Please select different one' 
+          input = gets.chomp.to_i
+        end
       end
       cell[input - 1] = player_mark
       check = Logic.new
