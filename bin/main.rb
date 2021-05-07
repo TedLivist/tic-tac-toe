@@ -35,9 +35,11 @@ end
 
 def play
   cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  game_on = true
+  i = 0
   players = player_assignment
   board(cell)
-  (0..8).each do |i|
+  while game_on
     if i.even?
       puts "It's #{players[0]}'s turn"
       begin
@@ -63,6 +65,8 @@ def play
       cell[num - 1] = 'O'
       board(cell)
     end
+    i += 1
+    game_on = false if i == 9
   end
 end
 
