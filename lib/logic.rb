@@ -1,9 +1,11 @@
+# rubocop: disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Lint/DuplicateBranch
+
 class Logic
   def initialize
     @checking = false
   end
 
-  def check_win(player, player_mark, arr)
+  def check_win(player_mark, arr)
     if arr[0] == player_mark and arr[1] == player_mark and arr[2] == player_mark
       @checking = true
     elsif arr[3] == player_mark and arr[4] == player_mark and arr[5] == player_mark
@@ -24,8 +26,8 @@ class Logic
   end
 
   def win?
-    if @checking == true
-      return true
-    end
+    return true if @checking == true
   end
 end
+
+# rubocop: enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Lint/DuplicateBranch

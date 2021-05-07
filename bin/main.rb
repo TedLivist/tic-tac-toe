@@ -1,36 +1,36 @@
 #!/usr/bin/env ruby
 
-# rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Style/IdenticalConditionalBranches
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize
 
-require_relative '../lib/logic.rb'
+require_relative '../lib/logic'
 
 def player_assignment
-  puts "Welcome to this tic-tac-toe game"
-  puts "Please, put in your name Player 1"
+  puts 'Welcome to this tic-tac-toe game'
+  puts 'Please, put in your name Player 1'
   player_one = gets.chomp
   sleep 0.5
   puts "Player 1 your marker is 'X'"
-  puts ""
-  puts "Please, put in your name Player 2"
+  puts ''
+  puts 'Please, put in your name Player 2'
   player_two = gets.chomp
   sleep 0.5
   puts "Player 2 your marker is 'O'"
-  puts ""
+  puts ''
   [player_one, player_two]
 end
 
 def board(arr)
-  puts "+---+---+---+"
+  puts '+---+---+---+'
   puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-  puts "+---+---+---+"
+  puts '+---+---+---+'
   puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-  puts "+---+---+---+"
+  puts '+---+---+---+'
   puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
-  puts "+---+---+---+"
+  puts '+---+---+---+'
 end
 
 def play
-  cell = [1,2,3,4,5,6,7,8,9]
+  cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   players = player_assignment
   board(cell)
   i = 0
@@ -40,20 +40,18 @@ def play
       puts "It's #{players[0]}'s turn!"
       player_mark = 'X'
       begin
-        puts "Select a number"
+        puts 'Select a number'
         input = gets.chomp.to_i
-        puts ""
-        if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
-          raise StandardError, input
-        end
+        puts ''
+        raise StandardError, input if input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
       rescue StandardError
-        puts "Select a number between 1 and 9"
-        puts ""
+        puts 'Select a number between 1 and 9'
+        puts ''
         retry
       end
       cell[input - 1] = player_mark
       check = Logic.new
-      check.check_win(players[0], player_mark, cell)
+      check.check_win(player_mark, cell)
       if check.win?
         board(cell)
         puts "#{players[0]} is the winner!"
@@ -66,20 +64,18 @@ def play
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
       begin
-        puts "Select a number"
+        puts 'Select a number'
         input = gets.chomp.to_i
-        puts ""
-        if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
-          raise StandardError, input
-        end
+        puts ''
+        raise StandardError, input if input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)
       rescue StandardError
-        puts "Select a number between 1 and 9"
-        puts ""
+        puts 'Select a number between 1 and 9'
+        puts ''
         retry
       end
       cell[input - 1] = player_mark
       check = Logic.new
-      check.check_win(players[1], player_mark, cell)
+      check.check_win(player_mark, cell)
       if check.win?
         board(cell)
         puts "#{players[1]} is the winner!"
@@ -89,8 +85,8 @@ def play
       end
       board(cell)
     elsif i == 9
-      puts ""
-      puts "DRAW"
+      puts ''
+      puts 'DRAW'
       repeat_game
       game_on = false
     end
@@ -99,15 +95,15 @@ def play
 end
 
 def repeat_game
-  puts "Play another round? (Y/N)"
+  puts 'Play another round? (Y/N)'
   answer = gets.chomp.downcase
   if answer == 'y'
     play
   else
-    puts "Game over"
+    puts 'Game over'
   end
 end
 
 play
 
-# rubocop: enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Style/IdenticalConditionalBranches
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize
