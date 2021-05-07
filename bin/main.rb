@@ -12,17 +12,31 @@ def board(arr)
 end
 
 def player_assignment
-  puts 'Please fill in your name, Player 1'
-  player_one = gets.chomp
-  puts 'Please fill in your name, Player 2'
-  player_two = gets.chomp
+  player_one = ""
+  player_two = ""
+  begin
+    puts 'Please fill in your name, Player 1'
+    player_one = gets.chomp
+    raise StandardError, player_one if player_one == ""
+  rescue StandardError
+    puts 'Please put in a name'
+    retry
+  end
+  begin
+    puts 'Please fill in your name, Player 2'
+    player_two = gets.chomp
+    raise StandardError, player_two if player_two == ""
+  rescue StandardError
+    puts 'Please put in a name'
+    retry
+  end
   [player_one, player_two]
 end
 
 def play
   cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  board(cell)
   players = player_assignment
+  board(cell)
   (0..8).each do |i|
     if i.even?
       puts "It's #{players[0]}'s turn"
