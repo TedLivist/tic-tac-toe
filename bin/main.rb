@@ -12,12 +12,12 @@ def board(arr)
 end
 
 def player_assignment
-  player_one = ""
-  player_two = ""
+  player_one = ''
+  player_two = ''
   begin
     puts 'Please fill in your name, Player 1'
     player_one = gets.chomp
-    raise StandardError, player_one if player_one == ""
+    raise StandardError, player_one if player_one == ''
   rescue StandardError
     puts 'Please put in a name'
     retry
@@ -25,7 +25,7 @@ def player_assignment
   begin
     puts 'Please fill in your name, Player 2'
     player_two = gets.chomp
-    raise StandardError, player_two if player_two == ""
+    raise StandardError, player_two if player_two == ''
   rescue StandardError
     puts 'Please put in a name'
     retry
