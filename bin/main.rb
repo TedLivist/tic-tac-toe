@@ -1,72 +1,110 @@
 #!/usr/bin/env ruby
 
 # rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Style/IdenticalConditionalBranches
-def board(arr)
-  puts '+---+---+---+'
-  puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-  puts '+---+---+---+'
-  puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-  puts '+---+---+---+'
-  puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
-  puts '+---+---+---+'
-end
+
+require_relative '../lib/logic.rb'
 
 def player_assignment
-  player_one = ''
-  player_two = ''
-  begin
-    puts 'Please fill in your name, Player 1'
-    player_one = gets.chomp
-    raise StandardError, player_one if player_one == ''
-  rescue StandardError
-    puts 'Please put in a name'
-    retry
-  end
-  begin
-    puts 'Please fill in your name, Player 2'
-    player_two = gets.chomp
-    raise StandardError, player_two if player_two == ''
-  rescue StandardError
-    puts 'Please put in a name'
-    retry
-  end
+  puts "Welcome to this tic-tac-toe game"
+  puts "Please, put in your name Player 1"
+  player_one = gets.chomp
+  sleep 0.5
+  puts "Player 1 your marker is 'X'"
+  puts ""
+  puts "Please, put in your name Player 2"
+  player_two = gets.chomp
+  sleep 0.5
+  puts "Player 2 your marker is 'O'"
+  puts ""
   [player_one, player_two]
 end
 
+def board(arr)
+  puts "+---+---+---+"
+  puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
+  puts "+---+---+---+"
+  puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
+  puts "+---+---+---+"
+  puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
+  puts "+---+---+---+"
+end
+
 def play
-  cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  game_on = true
-  i = 0
+  cell = [1,2,3,4,5,6,7,8,9]
   players = player_assignment
   board(cell)
+  i = 0
+  game_on = true
   while game_on
     if i.even?
-      puts "It's #{players[0]}'s turn"
+      puts "It's #{players[0]}'s turn!"
+      player_mark = 'X'
       begin
-        puts 'Please put in a number between 1 and 9'
-        num = gets.chomp.to_i
-        raise StandardError, num if num.nil? or num < 1 or num > 9 or cell[num - 1] != num
+        puts "Select a number"
+        input = gets.chomp.to_i
+        puts ""
+        if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
+          raise StandardError, input
+        end
       rescue StandardError
-        puts 'invalid input'
+        puts "Select a number between 1 and 9"
+        puts ""
         retry
       end
-      cell[num - 1] = 'X'
+      cell[input - 1] = player_mark
+      check = Logic.new
+      check.check_win(players[0], player_mark, cell)
+      if check.win?
+        board(cell)
+        puts "#{players[0]} is the winner!"
+        repeat_game
+        game_on = false
+        break
+      end
       board(cell)
-    else
-      puts "It's #{players[1]}'s turn"
+    elsif i.odd? and i != 9
+      puts "It's #{players[1]}'s turn!"
+      player_mark = 'O'
       begin
-        puts 'Please put in a number between 1 and 9'
-        num = gets.chomp.to_i
-        raise StandardError, num if num.nil? or num < 1 or num > 9 or cell[num - 1] != num
+        puts "Select a number"
+        input = gets.chomp.to_i
+        puts ""
+        if (input.nil? or input < 1 or input > 9 or !cell[input - 1].is_a?(Integer)) then
+          raise StandardError, input
+        end
       rescue StandardError
-        puts 'invalid input'
+        puts "Select a number between 1 and 9"
+        puts ""
         retry
       end
-      cell[num - 1] = 'O'
+      cell[input - 1] = player_mark
+      check = Logic.new
+      check.check_win(players[1], player_mark, cell)
+      if check.win?
+        board(cell)
+        puts "#{players[1]} is the winner!"
+        repeat_game
+        game_on = false
+        break
+      end
       board(cell)
+    elsif i == 9
+      puts ""
+      puts "DRAW"
+      repeat_game
+      game_on = false
     end
     i += 1
-    game_on = false if i == 9
+  end
+end
+
+def repeat_game
+  puts "Play another round? (Y/N)"
+  answer = gets.chomp.downcase
+  if answer == 'y'
+    play
+  else
+    puts "Game over"
   end
 end
 
