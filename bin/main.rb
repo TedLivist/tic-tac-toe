@@ -2,8 +2,8 @@
 
 # rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize, Metrics/BlockNesting
 
-require_relative '../lib/players.rb'
-require_relative '../lib/board.rb'
+require_relative '../lib/players'
+require_relative '../lib/board'
 require_relative '../lib/logic'
 
 def play
