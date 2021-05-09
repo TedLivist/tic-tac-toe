@@ -3,22 +3,14 @@
 # rubocop: disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/AbcSize, Metrics/BlockNesting
 
 require_relative '../lib/players.rb'
+require_relative '../lib/board.rb'
 require_relative '../lib/logic'
-
-def board(arr)
-  puts '+---+---+---+'
-  puts "| #{arr[0]} | #{arr[1]} | #{arr[2]} |"
-  puts '+---+---+---+'
-  puts "| #{arr[3]} | #{arr[4]} | #{arr[5]} |"
-  puts '+---+---+---+'
-  puts "| #{arr[6]} | #{arr[7]} | #{arr[8]} |"
-  puts '+---+---+---+'
-end
 
 def play
   cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   players = Players.new.player_assignment
-  board(cell)
+  game_board = Board.new
+  game_board.board(cell)
   i = 0
   game_on = true
   while game_on
@@ -41,13 +33,13 @@ def play
       check = Logic.new
       check.check_win(player_mark, cell)
       if check.win?
-        board(cell)
+        game_board.board(cell)
         puts "#{players[0]} is the winner!!"
         repeat_game
         game_on = false
         break
       end
-      board(cell)
+      game_board.board(cell)
     elsif i.odd? and i != 9
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
@@ -67,13 +59,13 @@ def play
       check = Logic.new
       check.check_win(player_mark, cell)
       if check.win?
-        board(cell)
+        game_board.board(cell)
         puts "#{players[1]} is the winner!!"
         repeat_game
         game_on = false
         break
       end
-      board(cell)
+      game_board.board(cell)
     elsif i == 9
       puts ''
       puts 'DRAW'
