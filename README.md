@@ -14,20 +14,26 @@ This is our 3rd ruby project in microverse
 
 ### Prerequisites
 
-For local usage, ensure you have Ruby and VSCode installed
+For local usage, ensure you have Ruby installed
 
 ## Getting Started
 
-    1. Clone the repository
-    2. Open VSCode
-    3. Open the repository folder in the vs code
-    4. Open the terminal in the VSCode
-    5. Type bin/Main.rb
-    6. Most important. Have Fun!
+### To get a local copy up and running simply follow the next step.
+
+- Clone this repository on to your local PC
+  - Click on the `Code` green button
+  - By the right end of the read-only input containing the repository link click the clipboard icon to copy the link
+  - In your local PC, open your terminal in the folder you would like to clone the repository into
+  - Clone the repository with the command: `git clone (copied link)`; like so: `git clone https://github.com/TedLivist/tic-tac-toe.git`
+- After the clone, and still on the terminal, type in the command `cd tic-tac-toe` to access the cloned directory
+- On the terminal, type `bin/main.rb` to start the game
+- Most important. Have fun!
 
 ### Game Rules
 
-  1. To enter the game you must choose a nickname!
+After cloning the repo and accessing the `tic-tac-toe` directory on the terminal, as described above:
+
+  1. To continue the game you must choose a nickname!
   2. Each player gets a sign to use during the game. Its either X or O
   3. The game is played in turns. Each player gets one turn
   4. The goal is for each player to get 3 of the same sign on a same line (row, column or diagonal)
