@@ -44,8 +44,8 @@ For local usage, ensure you have Ruby and VSCode installed
 
 :bust_in_silhouette: **Author2**
 
-- GitHub: [@vikitaotiz](https://github.com/vikitaotiz)
-- Twitter: [@victoro29641869]
+- GitHub: [@]()
+- Twitter: [@]
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## :handshake: Contributing
