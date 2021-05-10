@@ -39,8 +39,8 @@ For local usage, ensure you have Ruby and VSCode installed
 :bust_in_silhouette: **Author1**
 
 - GitHub: [@igorkol91](https://github.com/igorkol91)
-- Twitter: [@Destro49536502]
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Twitter: [@Destro49536502](https://twitter.com/Destro49536502)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/igor-koloski-a754aa208/)
 
 :bust_in_silhouette: **Author2**
 
