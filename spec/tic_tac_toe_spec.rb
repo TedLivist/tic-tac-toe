@@ -1,4 +1,4 @@
-#spec/tic-tac-toe_spec.rb
+# spec/tic_tac_toe_spec.rb
 
 require './lib/board'
 require './lib/players'
@@ -53,9 +53,11 @@ end
 describe Board do
   describe '#board ' do
     it 'puts the board on the console' do
-      cell = [1,2,3,4,5,6,7,8,9]
+      cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
       new_board = Board.new
-      expect{new_board.board(cell)}.to output("+---+---+---+\n| 1 | 2 | 3 |\n+---+---+---+\n| 4 | 5 | 6 |\n+---+---+---+\n| 7 | 8 | 9 |\n+---+---+---+\n").to_stdout
+      # rubocop: disable Layout/LineLength
+      expect { new_board.board(cell) }.to output("+---+---+---+\n| 1 | 2 | 3 |\n+---+---+---+\n| 4 | 5 | 6 |\n+---+---+---+\n| 7 | 8 | 9 |\n+---+---+---+\n").to_stdout
+      # rubocop: enable Layout/LineLength
     end
   end
 end
