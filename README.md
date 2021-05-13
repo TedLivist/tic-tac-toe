@@ -40,6 +40,10 @@ After cloning the repo and accessing the `tic-tac-toe` directory on the terminal
   5. The first player to get 3 in a line WINS!!!
   6. If the board is full and neither player got 3 in a line game ends in a draw.
 
+### Rspec
+
+To run the tests, enter the TicTacToe directory and run rspec in the console
+
 ## Authors
 
 :bust_in_silhouette: **Author1**
@@ -47,12 +51,6 @@ After cloning the repo and accessing the `tic-tac-toe` directory on the terminal
 - GitHub: [@igorkol91](https://github.com/igorkol91)
 - Twitter: [@Destro49536502](https://twitter.com/Destro49536502)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/igor-koloski-a754aa208/)
-
-:bust_in_silhouette: **Author2**
-
-- [GitHub](https://github.com/TedLivist)
-- [Twitter](https://twitter/iamxted)
-- [LinkedIn](https://linkedin.com/in/tememandu)
 
 ## :handshake: Contributing
 
