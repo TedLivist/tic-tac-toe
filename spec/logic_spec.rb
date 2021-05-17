@@ -9,10 +9,18 @@ describe Logic do
       end
     end
 
-    
+    context "when check for winner fails" do
+      it "returns false" do
+        new_logic.check_win('X', ['X', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'O'])
+        expect(new_logic.win?).to be(false)
+      end
+    end
 
-    it "returns false check for winner fails" do
-      new_logic.check_win('X', ['X', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'O'])
+    context "when check for winner passes" do
+      it "returns true" do
+        new_logic.check_win('O', ['O', 'X', 'X', 'O', 'O', 'X', 'X', 'X', 'O',])
+        expect(new_logic.win?).to be(true)
+      end
     end
   end
 end
