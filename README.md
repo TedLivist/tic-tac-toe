@@ -42,13 +42,13 @@ After cloning the repo and accessing the `tic-tac-toe` directory on the terminal
 
 ## Authors
 
-:bust_in_silhouette: **Author1**
+:bust_in_silhouette: **Igor Koloski**
 
 - GitHub: [@igorkol91](https://github.com/igorkol91)
 - Twitter: [@Destro49536502](https://twitter.com/Destro49536502)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/igor-koloski-a754aa208/)
 
-:bust_in_silhouette: **Author2**
+:bust_in_silhouette: **Teddy-Livingstone Ememandu**
 
 - [GitHub](https://github.com/TedLivist)
 - [Twitter](https://twitter/iamxted)
