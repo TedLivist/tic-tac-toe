@@ -10,7 +10,7 @@ def play
   cell = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   players = Players.new.player_assignment
   game_board = Board.new
-  game_board.board(cell)
+  puts game_board.board(cell)
   i = 0
   game_on = true
   while game_on
@@ -33,13 +33,13 @@ def play
       check = Logic.new
       check.check_win(player_mark, cell)
       if check.win?
-        game_board.board(cell)
+        puts game_board.board(cell)
         puts "#{players[0]} is the winner!!"
         repeat_game
         game_on = false
         break
       end
-      game_board.board(cell)
+      puts game_board.board(cell)
     elsif i.odd? and i != 9
       puts "It's #{players[1]}'s turn!"
       player_mark = 'O'
@@ -59,13 +59,13 @@ def play
       check = Logic.new
       check.check_win(player_mark, cell)
       if check.win?
-        game_board.board(cell)
+        puts game_board.board(cell)
         puts "#{players[1]} is the winner!!"
         repeat_game
         game_on = false
         break
       end
-      game_board.board(cell)
+      puts game_board.board(cell)
     elsif i == 9
       puts ''
       puts 'DRAW'
