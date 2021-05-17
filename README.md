@@ -40,6 +40,14 @@ After cloning the repo and accessing the `tic-tac-toe` directory on the terminal
   5. The first player to get 3 in a line WINS!!!
   6. If the board is full and neither player got 3 in a line game ends in a draw.
 
+## Setup test
+
+### To setup the Rspec testing process
+ 
+ - While in the directory on the terminal run `bundle install`
+ - To install `rspec` gem run `gem install rspec` on the terminal
+ - Finally, to run the tests type `rspec spec/[test_file.rb]` like so `rspec spec/logic_spec.rb` to run test on the `Logic` class
+
 ## Authors
 
 :bust_in_silhouette: **Igor Koloski**
