@@ -27,6 +27,7 @@ class Logic
 
   def win?
     true if @checking == true
+    @checking
   end
 end
 
